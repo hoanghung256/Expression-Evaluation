@@ -22,7 +22,12 @@ public class Main {
             System.out.print("Enter equation: ");
             String equation = sc.nextLine();
 
-            // Call calculate function here
+            CaculateExpressionNoparenthess cenp = new CaculateExpressionNoparenthess(equation);
+            try {
+                System.out.println(cenp.caculating());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
 
             System.out.print("Do you want to continue (Y/N): ");
             String con = sc.nextLine();
@@ -31,5 +36,5 @@ public class Main {
             }
         } while (true);
     }
-    
+
 }
