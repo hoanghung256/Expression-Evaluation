@@ -16,11 +16,8 @@ public class CaculateExpressionNoparenthess {
         ArrayStack st = new ArrayStack();
 
         try {
-            String[] var5 = part;
-            int var6 = part.length;
-
-            for(int var7 = 0; var7 < var6; ++var7) {
-                String s = var5[var7];
+            for(int i = 0; i < part.length; ++i) {
+                String s = part[i];
                 if (s.equals("+")) {
                     result = (Double)st.pop() + (Double)st.pop();
                     st.push(result);
@@ -39,18 +36,10 @@ public class CaculateExpressionNoparenthess {
                     st.push(Double.parseDouble(s));
                 }
             }
-        } catch (Exception var10) {
-            System.out.println("Exception" + var10.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception" + e.getMessage());
             return 0.0;
         }
         return (Double)st.pop();
-    }
-
-    public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter postfix  arithmetic expressions: ");
-        String s = scanner.nextLine();
-        CaculateExpressionNoparenthess cenp = new CaculateExpressionNoparenthess(s);
-        System.out.println(cenp.caculating());
     }
 }
