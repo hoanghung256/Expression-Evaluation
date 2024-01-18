@@ -1,4 +1,4 @@
-package stack;
+package stack.linked_stack;
 
 public class Node {
     public Object info;

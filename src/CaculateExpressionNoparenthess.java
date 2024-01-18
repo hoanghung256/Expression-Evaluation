@@ -1,8 +1,8 @@
 
-import stack.ArrayStack;
+import stack.array_stack.ArrayStack;
 
 import java.util.Scanner;
-
+// 9 3 / 5 + 7 2 - *
 public class CaculateExpressionNoparenthess {
     String input = new String();
 
@@ -14,36 +14,34 @@ public class CaculateExpressionNoparenthess {
         double result = 0.0;
         String[] part = this.input.split(" ");
         ArrayStack st = new ArrayStack();
-
+//        LinkedStack st = new LinkedStack();
         try {
-            String[] var5 = part;
-            int var6 = part.length;
-
-            for(int var7 = 0; var7 < var6; ++var7) {
-                String s = var5[var7];
-                if (s.equals("+")) {
+            for(int i = 0; i < part.length; i++) {
+                String item = part[i];
+                if (item.equals("+")) {
                     result = (Double)st.pop() + (Double)st.pop();
                     st.push(result);
-                } else if (s.equals("-")) {
+                } else if (item.equals("-")) {
                     result = (Double)st.pop() - (Double)st.pop();
-                    result = -1.0 * result;
+                    result = (-1.0) * result;
                     st.push(result);
-                } else if (s.equals("*")) {
+                } else if (item.equals("*")) {
                     result = (Double)st.pop() * (Double)st.pop();
                     st.push(result);
-                } else if (s.equals("/")) {
+                } else if (item.equals("/")) {
                     Double divisor = (Double)st.pop();
                     result = (Double)st.pop() / divisor;
                     st.push(result);
                 } else {
-                    st.push(Double.parseDouble(s));
+                    st.push(Double.parseDouble(item));
                 }
             }
-        } catch (Exception var10) {
-            System.out.println("Exception" + var10.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
             return 0.0;
         }
         return (Double)st.pop();
+        //return gia tri cua bieu thuc
     }
 
     public static void main(String[] args) throws Exception {

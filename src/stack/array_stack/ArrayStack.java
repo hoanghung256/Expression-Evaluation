@@ -1,4 +1,4 @@
-package stack;
+package stack.array_stack;
 
 public class ArrayStack {
     protected Object[] a;
